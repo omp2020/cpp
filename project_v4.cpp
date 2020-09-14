@@ -430,8 +430,8 @@ void menu(int pointer)
 }
 void write_product()
 {
-    fstream fp;
-    fp.open("Product.txt", ios::out | ios::app);
+    ofstream fp;
+    fp.open("Product.txt", ios::app);
     pr.getdata();
     fp.write((char *)&pr, sizeof(product));
     fp.close();
@@ -469,7 +469,8 @@ void modify_product()
 }
 void delete_product()
 {
-    fstream fp, fp1;
+    fstream fp;
+    ofstream fp1;
     int id;
     bool avail = false;
     display_all();
@@ -526,7 +527,7 @@ void display_one()
     int id, flag = 0;
     cout << "Enter the Product ID: ";
     cin >> id;
-    fstream fp;
+    ifstream fp;
     fp.open("Product.txt", ios::in);
     while (fp.read((char *)&pr, sizeof(product)))
     {
@@ -643,7 +644,7 @@ void print_bill()
 }
 void searchbill()
 {
-    fstream fout;
+    ifstream fout;
     int b,found=0;
     float total_sum = 0;
     fout.open("Bill.txt", ios::in);
@@ -757,7 +758,8 @@ void select_product()
 }
 void delete_product_bill()
 {
-    fstream fp, fp1;
+    fstream fp;
+    ofstream fp1;
     int id, bno,flag = 0;
     cout << "Enter Bill No: ";
     cin >> bno;
