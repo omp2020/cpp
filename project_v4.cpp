@@ -507,7 +507,7 @@ void display_all()
 {
     system("cls");
     system("COLOR 8f");
-    fstream fp;
+    ifstream fp;
     fp.open("Product.txt", ios::in);
     cout << "***************************************" << endl;
     cout << "*       Displaying all products       *" << endl;
